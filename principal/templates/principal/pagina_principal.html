@@ -1,0 +1,15 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<h1>Bienvenido a InstaGarage</h1>
+{% for publicacion in publicaciones %}
+    <div>
+        <h2>{{ publicacion.titulo }}</h2>
+        <p>{{ publicacion.descripcion }}</p>
+        <p>{{ publicacion.precio }} USD</p>
+        <a href="{% url 'detalle_publicacion' publicacion.pk %}">Leer más</a>
+    </div>
+{% empty %}
+    <p>No hay publicaciones disponibles.</p>
+{% endfor %}
+{% endblock %}

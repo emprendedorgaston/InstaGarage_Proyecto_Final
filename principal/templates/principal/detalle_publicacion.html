@@ -1,0 +1,13 @@
+<!-- principal/templates/principal/detalle_publicacion.html -->
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="detalle-publicacion">
+    <h2>{{ publicacion.titulo }}</h2>
+    <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">
+    <p><strong>Descripción corta:</strong> {{ publicacion.descripcion_corta }}</p>
+    <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
+    <p><strong>Precio:</strong> ${{ publicacion.precio }}</p>
+    <p><strong>URL:</strong> <a href="{{ publicacion.url }}" target="_blank">{{ publicacion.url }}</a></p>
+</div>
+{% endblock %}

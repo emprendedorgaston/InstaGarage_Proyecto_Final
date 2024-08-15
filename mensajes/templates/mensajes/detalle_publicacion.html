@@ -1,0 +1,51 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="detalle-publicacion">
+    <h2>{{ publicacion.titulo }}</h2>
+    <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">
+    <p><strong>Descripción corta:</strong> {{ publicacion.descripcion_corta }}</p>
+    <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
+    <p><strong>Precio:</strong> ${{ publicacion.precio }}</p>
+    <p><strong>URL:</strong> <a href="{{ publicacion.url }}" target="_blank">{{ publicacion.url }}</a></p>
+    <p><strong>Likes:</strong> {{ publicacion.total_likes }}</p>
+    <a href="{% url 'like_publicacion' publicacion.pk %}">
+        {% if user in publicacion.likes.all %}
+            Quitar Like
+        {% else %}
+            Dar Like
+        {% endif %}
+    </a>
+</div>
+
+<hr>
+
+<h3>Comentarios</h3>
+<div class="comentarios">
+    {% for comentario in comentarios %}
+        <div class="comentario">
+            <p><strong>{{ comentario.autor.username }}:</strong> {{ comentario.texto }}</p>
+            <p><strong>Likes:</strong> {{ comentario.total_likes }}</p>
+            <a href="{% url 'like_comentario' publicacion.pk comentario.pk %}">
+                {% if user in comentario.likes.all %}
+                    Quitar Like
+                {% else %}
+                    Dar Like
+                {% endif %}
+            </a>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No hay comentarios aún.</p>
+    {% endfor %}
+</div>
+
+<hr>
+
+<h3>Deja un comentario</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ comentario_form.as_p }}
+    <button type="submit">Comentar</button>
+</form>
+{% endblock %}

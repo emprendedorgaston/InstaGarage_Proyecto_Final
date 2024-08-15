@@ -1,0 +1,28 @@
+<!-- principal/templates/principal/perfil.html -->
+{% extends 'principal/base.html' %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+<div class="perfil-header">
+    <img src="{{ user.perfil.avatar.url }}" alt="Foto de perfil" class="foto-perfil">
+    <h2>{{ user.username }}</h2>
+</div>
+
+<h3>Mis Publicaciones</h3>
+<div class="publicaciones-container">
+    {% for publicacion in publicaciones %}
+        <div class="card">
+            <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">
+            <h3>{{ publicacion.titulo }}</h3>
+            <p>{{ publicacion.descripcion_corta }}</p>
+            <p>Precio: ${{ publicacion.precio }}</p>
+            <a href="{% url 'detalle_publicacion' publicacion.pk %}">Ver más</a> | 
+            <a href="{% url 'editar_publicacion' publicacion.pk %}">Editar</a> | 
+            <a href="{% url 'eliminar_publicacion' publicacion.pk %}">Eliminar</a>
+        </div>
+    {% empty %}
+        <p>No has creado ninguna publicación.</p>
+    {% endfor %}
+</div>
+{% endblock %}

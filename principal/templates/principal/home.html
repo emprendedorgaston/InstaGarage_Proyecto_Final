@@ -1,0 +1,15 @@
+<!-- principal/templates/principal/home.html -->
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="publicaciones">
+    {% for publicacion in publicaciones %}
+        <div class="card">
+            <a href="{% url 'detalle_publicacion' publicacion.pk %}">
+                <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">
+                <h3>{{ publicacion.titulo }}</h3>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
