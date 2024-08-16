@@ -1,9 +1,7 @@
 # InstaGarage
 
-NOMBRE_APELLIDO: 
-GASTON ACOSTA
-
-
+**Nombre y Apellido:**  
+**Gastón Acosta**
 
 **InstaGarage** es una plataforma web dedicada a la venta de vehículos usados, diseñada para ser fácil de usar y accesible para todos. Este proyecto fue creado por **Gastón Acosta** como parte de su proyecto final en Coderhouse.
 
@@ -29,4 +27,4 @@ GASTON ACOSTA
 
 ## Aprende Más
 
-Para obtener una explicación detallada y una demostración de cómo funciona InstaGarage, puedes ver este video en YouTube: [Cómo utilizar InstaGarage]([https://www.youtube.com/watch?v=XXXXXXXXX](https://www.youtube.com/watch?v=h-o7HF81m5M)).
+Para obtener una explicación detallada y una demostración de cómo funciona InstaGarage, puedes ver este video en YouTube: [Cómo utilizar InstaGarage](https://www.youtube.com/watch?v=h-o7HF81m5M).
