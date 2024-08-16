@@ -4,8 +4,9 @@
 **Gastón Acosta**
 
 Para ingresar como Owner del Proyecto Utiliza
-Usuario: gaston_acosta
-Passwords: 102030Coder
+
+- **Usuario: gaston_acosta**
+- **Passwords: 102030Coder**
 
 **InstaGarage** es una plataforma web dedicada a la venta de vehículos usados, diseñada para ser fácil de usar y accesible para todos. Este proyecto fue creado por **Gastón Acosta** como parte de su proyecto final en Coderhouse.
 
