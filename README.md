@@ -28,5 +28,6 @@ GASTON ACOSTA
    - Interactúa con otros usuarios dejando comentarios en sus publicaciones.
 
 ## Aprende Más
+## Aprende Más
 
-Para obtener una explicación detallada y una demostración de cómo funciona InstaGarage, puedes ver este video en YouTube: [Cómo utilizar InstaGarage](https://www.youtube.com/watch?v=XXXXXXXXX).
+Para ver un tutorial en video de cómo utilizar InstaGarage, descarga el video: [tutorial-instagarage.mp4](tutorial-instagarage.mp4).
