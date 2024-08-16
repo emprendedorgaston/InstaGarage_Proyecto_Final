@@ -1,0 +1,32 @@
+{% extends 'principal/base.html' %}
+
+{% block content %}
+<div class="gestion-usuarios-container">
+    <h2>Gestionar Usuarios</h2>
+    <table class="tabla-usuarios">
+        <thead>
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>
+                    <span class="estado {{ usuario.perfil.estado|lower }}">{{ usuario.perfil.estado }}</span>
+                </td>
+                <td>
+                    <a class="btn-ver" href="{% url 'ver_publicaciones_usuario' usuario.id %}">Ver Publicaciones</a> 
+                    <a class="btn-eliminar" href="{% url 'eliminar_usuario' usuario.id %}" onclick="return confirm('¿Estás seguro de que deseas eliminar este usuario?');">Eliminar Usuario</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,10 +1,12 @@
 {% extends 'principal/base.html' %}
 
 {% block content %}
-<h2>Crear Publicación</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Publicar</button>
-</form>
+<div class="crear-publicacion-container">
+    <h2>Crear Publicación</h2>
+    <form method="post" enctype="multipart/form-data" class="form-publicacion">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-publicar">Publicar</button>
+    </form>
+</div>
 {% endblock %}

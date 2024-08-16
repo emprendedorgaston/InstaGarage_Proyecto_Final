@@ -1,7 +1,8 @@
 {% extends 'principal/base.html' %}
 
 {% block content %}
-<div class="publicaciones">
+<h2>Publicaciones de {{ usuario.username }}</h2>
+<div class="publicaciones-container">
     {% for publicacion in publicaciones %}
         <div class="card">
             <a href="{% url 'detalle_publicacion' publicacion.pk %}">
@@ -10,6 +11,8 @@
                 <p>Precio: ${{ publicacion.precio }}</p>
             </a>
         </div>
+    {% empty %}
+        <p>Este usuario no tiene publicaciones.</p>
     {% endfor %}
 </div>
 {% endblock %}

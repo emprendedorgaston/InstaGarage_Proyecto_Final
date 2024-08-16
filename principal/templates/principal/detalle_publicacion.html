@@ -1,13 +1,72 @@
-<!-- principal/templates/principal/detalle_publicacion.html -->
 {% extends 'principal/base.html' %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 {% block content %}
-<div class="detalle-publicacion">
-    <h2>{{ publicacion.titulo }}</h2>
-    <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">
-    <p><strong>Descripción corta:</strong> {{ publicacion.descripcion_corta }}</p>
-    <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
-    <p><strong>Precio:</strong> ${{ publicacion.precio }}</p>
-    <p><strong>URL:</strong> <a href="{{ publicacion.url }}" target="_blank">{{ publicacion.url }}</a></p>
+<div class="detalle-publicacion-container">
+    <div class="detalle-publicacion">
+        <h2>{{ publicacion.titulo }}</h2>
+        <div class="publicacion-imagen">
+            <img src="{{ publicacion.imagen.url }}" alt="{{ publicacion.titulo }}">
+        </div>
+        <div class="publicacion-detalles">
+            <p><strong>Descripción corta:</strong> {{ publicacion.descripcion_corta }}</p>
+            <p><strong>Descripción:</strong> {{ publicacion.descripcion }}</p>
+            <p><strong>Precio:</strong> ${{ publicacion.precio }}</p>
+            {% if publicacion.url %}
+                <p><strong>URL:</strong> <a href="{{ publicacion.url }}" target="_blank">{{ publicacion.url }}</a></p>
+            {% endif %}
+        </div>
+
+        <!-- Mostrar mensajes de éxito o error -->
+        {% if mensaje %}
+            <div class="alert alert-success">
+                {{ mensaje }}
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="alert alert-danger">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <!-- Sección de comentarios -->
+        <div class="comentarios">
+            <h3>Comentarios</h3>
+            <ul class="lista-comentarios">
+                {% for comentario in comentarios %}
+                    <li style="position: relative; padding: 10px;">
+                        <p><strong>{{ comentario.autor.username }}</strong> comentó el {{ comentario.fecha_creacion|date:"d/m/Y H:i" }}:</p>
+                        <p>{{ comentario.texto }}</p>
+                        {% if user == comentario.autor or user == publicacion.autor or user.perfil.estado == 'owner' %}
+                            <form method="post" action="{% url 'eliminar_comentario' publicacion.pk comentario.pk %}" style="position: absolute; top: 0; right: 0;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-link p-0 m-0" style="border: none; background: none;">
+                                    <span class="material-icons" style="font-size: 20px; color: red;">delete</span>
+                                </button>
+                            </form>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Formulario para dejar un comentario -->
+        {% if user.is_authenticated %}
+            <div class="comentario-form">
+                <h4>Deja un comentario</h4>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ comentario_form.as_p }}
+                    <button type="submit" class="btn btn-primary mt-2">Enviar Comentario</button>
+                </form>
+            </div>
+        {% else %}
+            <p><a href="{% url 'login' %}">Inicia sesión</a> para dejar un comentario.</p>
+        {% endif %}
+
+        <div class="boton-volver">
+            <a href="{% url 'home' %}" class="btn btn-primary">Volver al Home</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

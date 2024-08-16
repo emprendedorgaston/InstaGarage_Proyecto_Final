@@ -1,233 +1,361 @@
 /* Estilos globales */
 body, html {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Fondo gris claro para todo el cuerpo */
+    background-color: #f0f0f0;
+    color: #333;
+    text-align: center; /* Centrando todos los textos */
 }
 
 /* Estilos para el navbar */
 nav {
-    background-color: #333;
+    background-color: #1a1a1a;
     color: white;
-    padding: 10px;
+    padding: 20px 0; /* Mayor altura en el header */
     text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
     color: white;
     margin: 0 15px;
     text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
+    color: #ff6347;
     text-decoration: underline;
+}
+
+/* Estilos para la sección Acerca de mí */
+.acerca-de-container {
+    background-color: #fff;
+    padding: 50px;
+    margin: 50px auto;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.acerca-de-container h1 {
+    font-size: 36px;
+    color: #ff6347;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.acerca-de-container p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.acerca-de-container strong {
+    color: #333;
 }
 
 /* Estilos para la página de perfil */
 .perfil-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 900px;
+    margin: 50px auto;
+    text-align: center;
 }
 
 .perfil-header {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .foto-perfil {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     object-fit: cover;
+    border: 4px solid #ff6347;
+    animation: bounceIn 1s ease;
+}
+
+.perfil-header h2 {
+    font-size: 28px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.perfil-bio {
+    margin-bottom: 30px;
+}
+
+.perfil-bio p {
+    font-size: 16px;
+    color: #555;
 }
 
 .publicaciones-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 .card {
-    width: 250px;
+    max-width: 280px;
     background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.card-buttons {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.card-buttons a {
-    padding: 5px 10px;
-    border-radius: 4px;
-    color: white;
-    text-decoration: none;
-}
-
-.card-buttons a.btn-edit {
-    background-color: #007bff;
-}
-
-.card-buttons a.btn-delete {
-    background-color: #dc3545;
-}
-
-.card-buttons a:hover {
-    opacity: 0.8;
-}
-
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    .perfil-container {
-        padding: 10px;
-    }
-
-    .publicaciones-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 90%;
-    }
-}
-
-/* Estilos para las publicaciones */
-.publicaciones-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.card {
-    width: 100%;
-    max-width: 250px;
-    background-color: #fff;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.2s ease-in-out;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.card h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.card p {
-    color: #666;
-    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s ease-in-out;
 }
 
 .card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
     transform: scale(1.05);
+}
+
+.card-info {
+    padding: 15px;
+}
+
+.card-info h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-info p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.card-info .precio {
+    font-size: 16px;
+    color: #ff6347;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .card-buttons {
     display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
 .card-buttons a {
-    text-decoration: none;
-    color: white;
-    background-color: #007bff;
     padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease-in-out;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.card-buttons a:hover {
-    background-color: #0056b3;
+.card-buttons .btn-view {
+    background-color: #007bff;
 }
 
-.card-buttons a.btn-danger {
+.card-buttons .btn-edit {
+    background-color: #28a745;
+}
+
+.card-buttons .btn-delete {
     background-color: #dc3545;
 }
 
-.card-buttons a.btn-danger:hover {
-    background-color: #c82333;
+.card-buttons a:hover {
+    opacity: 0.85;
 }
 
-/* Estilos para la página de detalle de la publicación */
-.detalle-publicacion {
-    margin: 20px;
+.no-publicaciones {
+    font-size: 16px;
+    color: #777;
+    margin-top: 30px;
+}
+
+/* Estilos para el título de la sección y las opciones de orden */
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.titulo-seccion h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.ordenar-opciones {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.ordenar-opciones a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.ordenar-opciones a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la galería de publicaciones */
+.publicaciones-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
     padding: 20px;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Adaptación para tablets y móviles */
+@media (max-width: 992px) {
+    .publicaciones-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .publicaciones-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilos para la paginación */
+.paginacion {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.paginacion a {
+    color: #007bff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.paginacion a:hover {
+    text-decoration: underline;
+}
+
+.paginacion span {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Estilos para la página de detalle de la publicación */
+.detalle-publicacion-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Asegura que ocupe al menos 80% de la altura de la pantalla */
+    padding: 30px;
+    background-color: #f9f9f9;
+}
+
+.detalle-publicacion {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    text-align: center;
+}
+
+.detalle-publicacion h2 {
+    font-size: 32px;
+    color: #ff6347;
+    margin-bottom: 20px;
+}
+
+.publicacion-imagen {
+    margin-bottom: 25px;
+}
+
 .publicacion-imagen img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    max-height: 400px; /* Establece un tamaño máximo para las imágenes */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .publicacion-detalles p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
 }
 
 .publicacion-detalles a {
     color: #007bff;
     text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 
 .publicacion-detalles a:hover {
+    color: #0056b3;
     text-decoration: underline;
 }
 
-/* Estilos para los formularios */
+/* Botón de volver */
+.boton-volver {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.boton-volver .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.boton-volver .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para formularios */
 form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
     background-color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
     border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 form h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     color: #333;
 }
 
@@ -236,20 +364,20 @@ form input[type="password"],
 form input[type="email"],
 form input[type="file"] {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 12px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 form button[type="submit"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #007bff;
     color: white;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
+    border-radius: 5px;
+    font-size: 18px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
 }
@@ -258,23 +386,46 @@ form button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* Estilos para mensajes de error o éxito */
-form .errorlist {
-    color: #d9534f;
-    margin-bottom: 15px;
-    list-style-type: none;
-    padding-left: 0;
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-form .success {
-    color: #5cb85c;
-    margin-bottom: 15px;
-    text-align: center;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Media queries para dispositivos móviles */
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsivo */
 @media (max-width: 768px) {
-    .perfil-header,
+    .perfil-header h2 {
+        font-size: 24px;
+    }
+
+    .perfil-bio p {
+        font-size: 14px;
+    }
+
     .publicaciones-container {
         flex-direction: column;
         align-items: center;
@@ -282,6 +433,10 @@ form .success {
 
     .card {
         width: 90%;
+    }
+
+    .card-info {
+        padding: 10px;
     }
 
     .card-buttons {
@@ -291,5 +446,299 @@ form .success {
 
     .card-buttons a {
         width: 100%;
+        text-align: center;
     }
+
+    .detalle-publicacion-container {
+        padding: 20px;
+    }
+
+    .detalle-publicacion {
+        padding: 20px;
+    }
+
+    .detalle-publicacion h2 {
+        font-size: 28px;
+    }
+
+    .publicacion-detalles p {
+        font-size: 16px;
+    }
+}
+
+/* Estilos para la página de Crear Publicación */
+.crear-publicacion-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.crear-publicacion-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-publicacion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-publicacion input[type="text"],
+.form-publicacion textarea,
+.form-publicacion input[type="number"],
+.form-publicacion input[type="url"],
+.form-publicacion input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-publicacion textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.btn-publicar {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-publicar:hover {
+    background-color: #0056b3;
+}
+
+.form-publicacion label {
+    font-weight: bold;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+}
+/* Estilos para la página de Editar Publicación */
+.editar-publicacion-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.editar-publicacion-container h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-publicacion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-publicacion input[type="text"],
+.form-publicacion textarea,
+.form-publicacion input[type="number"],
+.form-publicacion input[type="url"],
+.form-publicacion input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-publicacion textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.btn-publicar {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-publicar:hover {
+    background-color: #0056b3;
+}
+
+.form-publicacion label {
+    font-weight: bold;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+}
+
+.imagen-actual {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.imagen-miniatura {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Contenedor principal de la gestión de usuarios */
+.gestion-usuarios-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título de la sección */
+.gestion-usuarios-container h2 {
+    font-size: 32px;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+/* Tabla de usuarios */
+.tabla-usuarios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.tabla-usuarios th, 
+.tabla-usuarios td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    color: #333333;
+}
+
+/* Estilo de las filas */
+.tabla-usuarios tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tabla-usuarios th {
+    background-color: #ff6347;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Estilo del estado del usuario */
+.estado {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.estado.normal {
+    background-color: #007bff;
+}
+
+.estado.owner {
+    background-color: #28a745;
+}
+
+/* Botones de acción */
+.tabla-usuarios .btn-ver,
+.tabla-usuarios .btn-eliminar {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.tabla-usuarios .btn-ver {
+    background-color: #007bff;
+}
+
+.tabla-usuarios .btn-ver:hover {
+    background-color: #0056b3;
+}
+
+.tabla-usuarios .btn-eliminar {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+.tabla-usuarios .btn-eliminar:hover {
+    background-color: #c82333;
+}
+/* Estilos para la sección de comentarios */
+.comentarios {
+    margin-top: 30px;
+}
+
+.comentarios h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.lista-comentarios {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-comentarios li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lista-comentarios li p {
+    margin: 0;
+}
+
+.comentario-form {
+    margin-top: 30px;
+}
+
+.comentario-form h4 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.comentario-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comentario-form form button {
+    align-self: flex-start;
 }

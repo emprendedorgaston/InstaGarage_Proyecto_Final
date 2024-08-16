@@ -1,11 +1,18 @@
-<!-- mensajes/templates/mensajes/editar_publicacion.html -->
 {% extends 'principal/base.html' %}
 
 {% block content %}
-<h2>Editar Publicación</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Guardar cambios</button>
-</form>
+<div class="editar-publicacion-container">
+    <h2>Editar Publicación</h2>
+    <form method="post" enctype="multipart/form-data" class="form-publicacion">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <div class="imagen-actual">
+            <label>Imagen actual:</label>
+            <img src="{{ publicacion.imagen.url }}" alt="Imagen actual" class="imagen-miniatura">
+        </div>
+        
+        <button type="submit" class="btn-publicar">Guardar cambios</button>
+    </form>
+</div>
 {% endblock %}

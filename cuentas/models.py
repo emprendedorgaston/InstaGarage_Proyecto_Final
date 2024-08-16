@@ -1,13 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
-import os
 
 class Perfil(models.Model):
+    ESTADOS = (
+        ('normal', 'Normal'),
+        ('owner', 'Owner'),
+    )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to='avatars/', default='avatars/default.png')
+    estado = models.CharField(max_length=10, choices=ESTADOS, default='normal')
 
     def __str__(self):
-        return self.user.username
+        return f"{self.user.username} - {self.estado}"
 
     def save(self, *args, **kwargs):
         # Elimina la imagen anterior si ya existe
